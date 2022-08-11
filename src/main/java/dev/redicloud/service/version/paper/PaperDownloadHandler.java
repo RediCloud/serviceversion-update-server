@@ -1,7 +1,6 @@
 package dev.redicloud.service.version.paper;
 
-import dev.redicloud.service.version.ServiceVersion;
-import dev.redicloud.service.version.URLUtils;
+import dev.redicloud.service.version.utils.URLUtils;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import org.jetbrains.annotations.NotNull;
@@ -11,10 +10,10 @@ public class PaperDownloadHandler implements Handler {
 
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
-        ServiceVersion version = ServiceVersion.fromApiName(ctx.pathParam("version"));
+        String version = ctx.pathParam("version");
         String build = ctx.pathParam("build");
         if(build.equalsIgnoreCase("latest") || build.equalsIgnoreCase("newest")){
-            String content = URLUtils.getContent("https://papermc.io/api/v2/projects/paper/versions/" + version.getApiName() + "/builds");
+            String content = URLUtils.getContent("https://papermc.io/api/v2/projects/paper/versions/" + version + "/builds");
             JSONObject json = new JSONObject(content);
             int i = 0;
             for (int i1 = 0; i1 < json.getJSONArray("builds").length(); i1++) {
@@ -25,8 +24,8 @@ public class PaperDownloadHandler implements Handler {
             }
             build = String.valueOf(i);
         }
-        ctx.redirect("https://api.papermc.io/v2/projects/paper/versions/" + version.getApiName()
+        ctx.redirect("https://api.papermc.io/v2/projects/paper/versions/" + version
                 + "/builds/" + build
-                + "/downloads/paper-" + version.getApiName() + "-" + build +".jar");
+                + "/downloads/paper-" + version + "-" + build +".jar");
     }
 }

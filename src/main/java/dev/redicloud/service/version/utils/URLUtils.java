@@ -1,4 +1,4 @@
-package dev.redicloud.service.version;
+package dev.redicloud.service.version.utils;
 
 import java.net.URL;
 import java.util.ArrayList;
