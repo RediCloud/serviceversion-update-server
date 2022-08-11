@@ -1,8 +1,8 @@
-package dev.redicloud.service.version;
+package dev.redicloud.service.versions;
 
-import dev.redicloud.service.version.handler.download.PaperDownloadHandler;
-import dev.redicloud.service.version.handler.download.VelocityDownloadHandler;
-import dev.redicloud.service.version.handler.download.WaterfallDownloadHandler;
+import dev.redicloud.service.versions.handler.download.PaperDownloadHandler;
+import dev.redicloud.service.versions.handler.download.VelocityDownloadHandler;
+import dev.redicloud.service.versions.handler.download.WaterfallDownloadHandler;
 import io.javalin.Javalin;
 import io.javalin.http.HandlerType;
 

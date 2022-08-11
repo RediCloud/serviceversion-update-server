@@ -1,4 +1,4 @@
-package dev.redicloud.service.version.handler.defaults;
+package dev.redicloud.service.versions.handler.defaults;
 
 import io.javalin.http.Context;
 import io.javalin.http.Handler;

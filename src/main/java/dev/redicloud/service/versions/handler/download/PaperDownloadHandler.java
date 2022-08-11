@@ -1,6 +1,6 @@
-package dev.redicloud.service.version.handler.download;
+package dev.redicloud.service.versions.handler.download;
 
-import dev.redicloud.service.version.utils.URLUtils;
+import dev.redicloud.service.versions.utils.URLUtils;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import org.jetbrains.annotations.NotNull;
