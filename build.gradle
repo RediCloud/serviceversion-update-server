@@ -1,12 +1,28 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
+
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group 'dev.redicloud.service.versions'
 version '1.0-SNAPSHOT'
 
+compileJava {
+    options.encoding = 'UTF-8'
+}
+
 repositories {
     mavenCentral()
+}
+
+tasks.jar.dependsOn tasks.shadowJar
+
+shadowJar {
+    archiveFileName.set("${project.name}.jar")
+    dependencies {
+        configurations = [project.configurations.runtimeClasspath]
+    }
 }
 
 dependencies {
