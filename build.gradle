@@ -8,6 +8,12 @@ apply plugin: 'com.github.johnrengelman.shadow'
 group 'dev.redicloud.service.versions'
 version '1.0-SNAPSHOT'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'dev.redicloud.service.versions.RestServer'
+    }
+}
+
 compileJava {
     options.encoding = 'UTF-8'
 }

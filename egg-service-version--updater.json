@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2022-08-11T21:59:07+02:00",
+    "name": "ServiceVersion-Update-Server",
+    "author": "paul@suqatri.net",
+    "description": null,
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11"
+    },
+    "file_denylist": [],
+    "startup": "java -jar serviceversion-update-server.jar",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"[main] INFO io.javalin.Javalin - Starting Javalin ...\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n\r\napt update\r\napt install -y curl\r\n\r\necho Downloading...\r\ncurl -o serviceversion-update-server.jar -Li https:\/\/ci.redicloud.dev\/job\/service-version-updater\/lastSuccessfulBuild\/artifact\/build\/libs\/serviceversion-updater.jar\r\n\r\n\r\necho Set permission!\r\nchmod 777 serviceversion-updater.jar\r\n\r\n\r\necho Finish!",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
