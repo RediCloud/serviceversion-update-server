@@ -1,4 +1,4 @@
-package dev.redicloud.service.version.paper;
+package dev.redicloud.service.version.handler;
 
 import dev.redicloud.service.version.utils.URLUtils;
 import io.javalin.http.Context;
