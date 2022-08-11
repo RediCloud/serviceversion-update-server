@@ -19,7 +19,7 @@ repositories {
 tasks.jar.dependsOn tasks.shadowJar
 
 shadowJar {
-    archiveFileName.set("${project.name}.jar")
+    archiveFileName.set("serviceversion-update-server.jar")
     dependencies {
         configurations = [project.configurations.runtimeClasspath]
     }

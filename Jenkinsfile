@@ -19,7 +19,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts artifacts: 'build/libs/serviceversion-updater.jar', fingerprint: true
+                    archiveArtifacts artifacts: 'build/libs/serviceversion-update-server.jar', fingerprint: true
                 }
             }
         }
